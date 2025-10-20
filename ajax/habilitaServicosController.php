@@ -19,6 +19,7 @@ $objServicos->setServicoHabilitado(1);
 $objServicos->setInfoAtendente($_POST['infoAtendimentos']);
 $objServicos->setIdCartaServico($_POST['comboServicos']);
 $objServicos->setCategoria($_POST['comboCategoria']);
+$objServicos->setTextoServicos($_POST['textoCartaServicos']);
 
 $i = 0;
 

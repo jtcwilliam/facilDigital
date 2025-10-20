@@ -5,16 +5,17 @@
     <title>Portal Agendamento Fácil - Prefeitura de Guarulhos</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 
     <script src="includes/jquery.mask.js"></script>
-    
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
 
 
@@ -41,7 +42,7 @@
         .reveal-overlay {
             background-color: rgba(10, 10, 10, 0.9)
         }
- 
+
 
         .responsive-combobox {
             width: 100%;

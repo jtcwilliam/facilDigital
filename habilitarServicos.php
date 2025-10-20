@@ -96,7 +96,7 @@ if ($_SESSION['usuarioLogado']['dados'][0]['idTipoPessoa'] != 4) {
                                     <select class="js-example-basic-single  responsive-combobox" id="comboServicosDocumentos" name="comboServicos"
                                         style="width: 100%;">
                                     </select>
-                                </label>                                
+                                </label>
                             </div>
 
                             <div class="small-12 large-12 cell">
@@ -104,7 +104,17 @@ if ($_SESSION['usuarioLogado']['dados'][0]['idTipoPessoa'] != 4) {
                                     <select class="js-example-basic-single  responsive-combobox" id="comboServicosCategoria" name="comboCategoria"
                                         style="width: 100%;">
                                     </select>
-                                </label>                                
+                                </label>
+                            </div>
+
+                            <div class="small-12 large-12 cell">
+                                <label for="qtdeMesas">Insira as informações para o atendimento<br>
+                                    <textarea name="textoCartaServicos" id="textoCartaServicos"></textarea>
+                                    <script>
+                                        CKEDITOR.replace('textoCartaServicos');
+                                    </script>
+
+                                </label>
                             </div>
 
 

@@ -30,15 +30,15 @@ class Conexao
 
 
         
-   /*
+   
             //  servidor desenvolvimento
 
             $user = 'dbagenddev';
             $pwd = 'Sge@4@5';
             $db = 'dbagenddev';
             $host = 'dbagenddev.mysql.dbaas.com.br';
- */
 
+/*
 
 
             //   servidor oficial
@@ -48,7 +48,7 @@ class Conexao
             $host = 'akuma.guarulhos.sp.gov.br';
 
  
-
+ */
 
 
 

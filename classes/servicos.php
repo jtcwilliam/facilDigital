@@ -16,6 +16,7 @@ class Servicos
     private $infoAtendente;
     private $servicoHabilitado;
     private $idCartaServico;
+    private $textoServicos;
     private $categoria;
 
     function __construct()
@@ -132,19 +133,41 @@ class Servicos
             $pdo = $this->getPdoConn();
 
 
-            //
-            $stmt = $pdo->prepare(" UPDATE `linkCartaServico` SET `servicoHabilitado` = :habilitado,    `categoria` = :categoria,
-                `infoAtendente` = :infoAtendente 
-           WHERE `idlinkCartaServico` = :idCarta");
+            $servicoHabilitado =  $this->getServicoHabilitado();
+
+            $infoAtendente = $this->getInfoAtendente();
+
+            $idCartaServico =  $this->getIdCartaServico();
+
+            $categoria = $this->getCategoria();
+
+            $textoServicos = $this->getTextoServicos();
 
 
-            $stmt->bindValue(':habilitado',  $this->getServicoHabilitado(), PDO::PARAM_STR);
 
-            $stmt->bindValue(':infoAtendente',  $this->getInfoAtendente(), PDO::PARAM_STR);
 
-            $stmt->bindValue(':idCarta', $this->getIdCartaServico(), PDO::PARAM_STR);
 
-            $stmt->bindValue(':categoria', $this->getCategoria(), PDO::PARAM_STR);
+
+            $stmt = $pdo->prepare(" UPDATE `linkCartaServico` SET `servicoHabilitado` = ?,   
+                `infoAtendente` = ? ,   `categoria` = ?,   textoCartaServico=?
+           WHERE `idlinkCartaServico` = ?");
+
+           print_r($stmt);
+
+
+            $stmt->bindValue(1 , $servicoHabilitado, PDO::PARAM_STR);
+
+            $stmt->bindValue(2,  $infoAtendente, PDO::PARAM_STR);
+
+            $stmt->bindValue(3, $categoria, PDO::PARAM_STR);
+
+            $stmt->bindValue(4, $textoServicos, PDO::PARAM_STR);
+
+            $stmt->bindValue(5, $idCartaServico, PDO::PARAM_STR);
+
+            
+
+            
 
             if ($stmt->execute()) {
 
@@ -320,7 +343,7 @@ class Servicos
 
     /**
      * Get the value of categoria
-     */ 
+     */
     public function getCategoria()
     {
         return $this->categoria;
@@ -330,10 +353,30 @@ class Servicos
      * Set the value of categoria
      *
      * @return  self
-     */ 
+     */
     public function setCategoria($categoria)
     {
         $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of textoServicos
+     */
+    public function getTextoServicos()
+    {
+        return $this->textoServicos;
+    }
+
+    /**
+     * Set the value of textoServicos
+     *
+     * @return  self
+     */
+    public function setTextoServicos($textoServicos)
+    {
+        $this->textoServicos = $textoServicos;
 
         return $this;
     }
