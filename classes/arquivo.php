@@ -299,6 +299,16 @@ class Arquivo
             $stmt->bindParam(7,  $assinadoDigital, PDO::PARAM_LOB);
 
 
+          /*  (idLinkCarta,//
+descricaoCarta, 
+categoria,//
+servicoHabilitado,//
+infoAtendente,//
+statusServico,
+textoCartaServico,//
+versaoCartaServico)
+VALUES (?,?,?,?,?,?,?,?);");
+*/
 
 
 

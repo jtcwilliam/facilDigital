@@ -103,6 +103,18 @@ include_once 'includes/head.php';
 
 
 
+    <div class="   full reveal" id="duvidascartaServico" data-reveal style="background-color:rgb(216, 216, 219);">
+        <div style="display: grid;  justify-content: center; align-content: center;  padding-top: 0px;">
+            <center style="color: black;">
+                <div id="corpoDuvidaServicos"></div>
+             
+
+            </center>
+        </div>
+
+    </div>
+
+
     <!-- duvida sobre Servicos -->
     <div class="   small reveal" id="modalDuvidasCartas" data-reveal style="background-color:rgb(216, 216, 219);">
         <div style="display: grid;  justify-content: center; align-content: center;  padding-top: 0px;">

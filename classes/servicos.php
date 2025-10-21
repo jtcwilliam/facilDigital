@@ -13,11 +13,13 @@ class Servicos
     private $pwd;
     private $pdoConn;
 
-    private $infoAtendente;
-    private $servicoHabilitado;
-    private $idCartaServico;
-    private $textoServicos;
-    private $categoria;
+    private $infoAtendente; //
+    private $servicoHabilitado; //
+    private $idCartaServico; //
+    private $textoServicos; //
+    private $categoria; //
+    private $statusServico; //
+    private $versaoCartaServico;
 
     function __construct()
     {
@@ -86,12 +88,11 @@ class Servicos
 
 
 
-            $sql = "select  * from linkCartaServico ";
+            $sql = "select * from cartaServico where idLinkCarta = ".$filtro." and statusServico = 1 ";
 
-            if ($filtro != null) {
-                $sql .= " where idUnidade= " . $filtro;
-            }
+   
 
+        
 
             $stmt = $pdo->prepare($sql);
 
@@ -133,44 +134,68 @@ class Servicos
             $pdo = $this->getPdoConn();
 
 
-            $servicoHabilitado =  $this->getServicoHabilitado();
-
-            $infoAtendente = $this->getInfoAtendente();
-
-            $idCartaServico =  $this->getIdCartaServico();
-
+            $idLinkCarta = $this->getIdCartaServico();
             $categoria = $this->getCategoria();
+            $servicoHabilitado = $this->getServicoHabilitado();
+            $infoAtendente = $this->getInfoAtendente();
+            $statusServico = $this->getStatusServico();
+            $textoCartaServico = $this->getTextoServicos();
+            $versaoCartaServico = $this->getVersaoCartaServico();
 
-            $textoServicos = $this->getTextoServicos();
 
 
 
 
-
-
-            $stmt = $pdo->prepare(" UPDATE `linkCartaServico` SET `servicoHabilitado` = ?,   
+            /*  $stmt = $pdo->prepare(" UPDATE `linkCartaServico` SET `servicoHabilitado` = ?,   
                 `infoAtendente` = ? ,   `categoria` = ?,   textoCartaServico=?
-           WHERE `idlinkCartaServico` = ?");
-
-           print_r($stmt);
+           WHERE `idlinkCartaServico` = ?");*/
 
 
-            $stmt->bindValue(1 , $servicoHabilitado, PDO::PARAM_STR);
 
-            $stmt->bindValue(2,  $infoAtendente, PDO::PARAM_STR);
+            $stmt = $pdo->prepare("
+            INSERT INTO cartaServico(idLinkCarta, categoria,servicoHabilitado,infoAtendente,
+            statusServico,textoCartaServico,versaoCartaServico) VALUES (?,?,?,?,?,?,?)");
 
-            $stmt->bindValue(3, $categoria, PDO::PARAM_STR);
 
-            $stmt->bindValue(4, $textoServicos, PDO::PARAM_STR);
 
-            $stmt->bindValue(5, $idCartaServico, PDO::PARAM_STR);
 
-            
+            $stmt->bindValue(1, $idLinkCarta, PDO::PARAM_INT);
+            $stmt->bindValue(2, $categoria, PDO::PARAM_INT);
+            $stmt->bindValue(3, $servicoHabilitado, PDO::PARAM_INT);
+            $stmt->bindValue(4, $infoAtendente, PDO::PARAM_STR);
+            $stmt->bindValue(5, $statusServico, PDO::PARAM_INT);
+            $stmt->bindValue(6, $textoCartaServico, PDO::PARAM_STR);
+            $stmt->bindValue(7, $versaoCartaServico, PDO::PARAM_STR);
 
-            
+ 
+
+
+
+
 
             if ($stmt->execute()) {
 
+                return true;
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+
+      public function  desabilitarServico()
+    {
+        try {
+
+            $pdo = $this->getPdoConn();
+
+            $idLinkCarta = $this->getIdCartaServico();
+            
+            $stmt = $pdo->prepare("update cartaServico set statusServico = 0 where idLinkCarta = ?");
+ 
+            $stmt->bindValue(1, $idLinkCarta, PDO::PARAM_INT);
+           
+            if ($stmt->execute()) {
                 return true;
             }
         } catch (PDOException $e) {
@@ -377,6 +402,46 @@ class Servicos
     public function setTextoServicos($textoServicos)
     {
         $this->textoServicos = $textoServicos;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of statusServico
+     */
+    public function getStatusServico()
+    {
+        return $this->statusServico;
+    }
+
+    /**
+     * Set the value of statusServico
+     *
+     * @return  self
+     */
+    public function setStatusServico($statusServico)
+    {
+        $this->statusServico = $statusServico;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of versaoCartaServico
+     */
+    public function getVersaoCartaServico()
+    {
+        return $this->versaoCartaServico;
+    }
+
+    /**
+     * Set the value of versaoCartaServico
+     *
+     * @return  self
+     */
+    public function setVersaoCartaServico($versaoCartaServico)
+    {
+        $this->versaoCartaServico = $versaoCartaServico;
 
         return $this;
     }

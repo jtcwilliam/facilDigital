@@ -20,20 +20,28 @@ $objServicos->setInfoAtendente($_POST['infoAtendimentos']);
 $objServicos->setIdCartaServico($_POST['comboServicos']);
 $objServicos->setCategoria($_POST['comboCategoria']);
 $objServicos->setTextoServicos($_POST['textoCartaServicos']);
+$objServicos->setStatusServico('1');
+$objServicos->setVersaoCartaServico($_POST['txtVersao']);
+
+
 
 $i = 0;
 
-if ($objServicos->habilitarServicos()) {
 
-    foreach ($documentosInserir as $key => $value) {
+if ($objServicos->desabilitarServico()) {
 
-        $objDocumentos->setIdServico($_POST['comboServicos']);
+    if ($objServicos->habilitarServicos()) {
 
-        $objDocumentos->setIdDocumento($value);
-        $objDocumentos->setStatus('1');
+        foreach ($documentosInserir as $key => $value) {
 
-        if ($objDocumentos->inserirServicoDocumento()) {
-            $i++;
+            $objDocumentos->setIdServico($_POST['comboServicos']);
+
+            $objDocumentos->setIdDocumento($value);
+            $objDocumentos->setStatus('1');
+
+            if ($objDocumentos->inserirServicoDocumento()) {
+                $i++;
+            }
         }
     }
 }

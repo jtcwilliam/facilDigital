@@ -91,11 +91,17 @@ if ($_SESSION['usuarioLogado']['dados'][0]['idTipoPessoa'] != 4) {
                     <form action="ajax/habilitaServicosController.php" method="POST" enctype="multipart/form-data">
                         <div class=" grid-x grid-padding-x">
 
-                            <div class="small-12 large-12 cell">
+                            <div class="small-12 large-9 cell">
                                 <label for="qtdeMesas">Escolha Serviço a ser habilitado<br>
                                     <select class="js-example-basic-single  responsive-combobox" id="comboServicosDocumentos" name="comboServicos"
-                                        style="width: 100%;">
+                                        style="width: 100%; height: 2em;" >
                                     </select>
+                                </label>
+                            </div>
+
+                            <div class="small-12 large-3 cell">
+                                <label for=" ">Versão<br>
+                                    <input type="text" id="txtVersao" name="txtVersao" />
                                 </label>
                             </div>
 

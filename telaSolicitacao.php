@@ -82,6 +82,7 @@ echo '</pre>';
                             <select class="js-example-basic-single  responsive-combobox" id="comboServicos"
                                 onchange="$('a#linkHelpServico').attr('href', $('#comboServicos').val());
                                  $('#modalDuvidasCartas').foundation('open'); $('#tudoCertoLink').show();
+                                 consultaServicoAjuda($('#comboServicos').find(':selected').attr('codigo'));
                                  
                                     criarCaixaArquivo($('#comboServicos').find(':selected').attr('codigo'));
 
@@ -98,6 +99,11 @@ echo '</pre>';
                         Se você tem alguma dúvida sobre procedimentos ou documentação desta solicitação, <b>clique aqui</b>.
                         Você será redirecionado para o portal da prefeitura para saber tudo o que precisa. Após isto, feche o Site da Prefeitura e continue sua solicitação aqui! </a>
                 </div>
+
+                   <div class="small-12 large-12 cell">
+
+                    <div id="textosServicos" ></div>
+                   </div>
 
 
                 <div class="small-12 large-12 cell">
@@ -679,15 +685,33 @@ echo '</pre>';
             })
             .done(function(data) {
 
-
-
-
                 $('#solicitacaoStatusContainer').html(data);
 
+            });
+    }
+
+    
+    function consultaServicoAjuda(idServico) {
 
 
+        alert(idServico);
+        var formData = {
+            idServico,
 
+            trazerServico: '1'
 
+        };
+        $.ajax({
+                type: 'POST',
+                url: 'ajax/servicoController.php',
+                data: formData,
+                dataType: 'html',
+                encode: true
+            })
+            .done(function(data) {
+ 
+
+                $('#textosServicos').html(data);
 
             });
     }
