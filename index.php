@@ -6,7 +6,7 @@ if (!session_start()) {
 
 
 
-   
+
 ?>
 
 <!doctype html>
@@ -23,14 +23,14 @@ include_once 'includes/head.php';
 
 <body style="background-image: url('imgs/fundoSistema.png') ;         background-size: cover " id="telaMaior">
     <style>
-            .button{
-                border-radius: 10px;
-            }
-            .fieldset{
-                border-radius: 10px;
-            }
+        .button {
+            border-radius: 10px;
+        }
 
-        </style>
+        .fieldset {
+            border-radius: 10px;
+        }
+    </style>
 
     <!-- modais de informação sucesso cadastrado -->
 
@@ -107,7 +107,7 @@ include_once 'includes/head.php';
         <div style="display: grid;  justify-content: center; align-content: center;  padding-top: 0px;">
             <center style="color: black;">
                 <div id="corpoDuvidaServicos"></div>
-             
+
 
             </center>
         </div>
@@ -265,6 +265,49 @@ include_once 'includes/head.php';
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
+
+
+
+
+    <!-- modal confirmação da solicitação -->
+    <div class="large reveal" id="modalAjudaSolicitacaoNovo" data-reveal style="text-align: left; overflow-y: scroll; height: 80vh;">
+
+
+        <div class=" grid-x  grid-padding-x" style="padding-bottom: 10px;">
+            <div class="small-12 large-12 cell">
+                <div id="textosServicos"></div>
+            </div>
+        </div>
+
+
+        <div class=" grid-x  grid-padding-x" style="padding-bottom: 10px;">
+            <div class="small-12 large-12 cell">
+                <center>
+
+                    <a class="button " data-close aria-label="Close modal" style="font-weight: 500; width: 50%; background-color: purple;">
+                        Clique para Fechar
+                    </a>
+
+                </center>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <button class="close-button success" data-close aria-label="Close modal" type="button" style="font-size: 1.3em">
+            <span aria-hidden="true">Clique para Fechar</span>
+        </button>
+    </div>
+
+
+
     <!-- fim dos modais -->
 
 

@@ -42,7 +42,7 @@ class Servicos
 
 
 
-            $sql = "select  * from linkCartaServico  where servicoHabilitado=1";
+            $sql = "select  * from linkCartaServico ";
 
 
 
@@ -88,7 +88,7 @@ class Servicos
 
 
 
-            $sql = "select * from cartaServico where idLinkCarta = ".$filtro." and statusServico = 1 ";
+            $sql = "select * from cartaServico where idLinkCarta = ".$filtro." ";
 
    
 

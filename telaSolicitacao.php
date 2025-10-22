@@ -100,10 +100,10 @@ echo '</pre>';
                         Você será redirecionado para o portal da prefeitura para saber tudo o que precisa. Após isto, feche o Site da Prefeitura e continue sua solicitação aqui! </a>
                 </div>
 
-                   <div class="small-12 large-12 cell">
+                <div class="small-12 large-12 cell">
 
-                    <div id="textosServicos" ></div>
-                   </div>
+                   
+                </div>
 
 
                 <div class="small-12 large-12 cell">
@@ -349,10 +349,10 @@ echo '</pre>';
 
 
                             $pasta =  $_SERVER['HTTP_HOST'];
-                            
+
                             ?>
                         
-                         qrCodeAssinatura('https:\/\/<?=$pasta?>\/maisDigital\/assinatura.php?idSolicitacao='+$('#idSolicitacaoHidden').val());
+                         qrCodeAssinatura('https:\/\/<?= $pasta ?>\/maisDigital\/assinatura.php?idSolicitacao='+$('#idSolicitacaoHidden').val());
                           $('#documentacao').hide(); $('#fieldSolicitacao').hide();
                            $('#escolha').css('color', 'rgba(8, 124, 4, 0.66)' );
                             $('#complemento').css('color', 'rgba(8, 124, 4, 0.66)' ); 
@@ -690,11 +690,12 @@ echo '</pre>';
             });
     }
 
-    
+
     function consultaServicoAjuda(idServico) {
 
+ 
 
-        alert(idServico);
+        $('#modalAjudaSolicitacaoNovo').foundation('open');
         var formData = {
             idServico,
 
@@ -709,7 +710,7 @@ echo '</pre>';
                 encode: true
             })
             .done(function(data) {
- 
+
 
                 $('#textosServicos').html(data);
 
