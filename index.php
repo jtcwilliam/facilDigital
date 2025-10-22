@@ -120,8 +120,10 @@ include_once 'includes/head.php';
         <div style="display: grid;  justify-content: center; align-content: center;  padding-top: 0px;">
             <center style="color: black;">
                 <h4>
-                    <a target="_blank" style="color: black;" id="linkHelpServico">Ola! Se você tem alguma dúvida sobre os procedimentos ou qual
-                        documentação será necessária para realizar a solicitação "<b><i><span style="color:#28536b" id='codigoSolicitacao'></span></i> </b>" <br>
+                    <a target="_blank" style="color: black;" id="linkHelpServico" onclick="consultaServicoAjuda($('#comboServicos').val());">Ola! Se você tem 
+                        alguma dúvida sobre os procedimentos ou qual
+                        documentação será necessária para realizar a 
+                        solicitação "<b><i><span style="color:#28536b" id='codigoSolicitacao'></span></i> </b>" <br>
                         <b><i>clique aqui</i></b> e você
                         será redirecionado para a carta de serviços da prefeitura. Após retirar suas dúvidas, volte aqui para realizar sua solicitação!
                     </a>
@@ -285,8 +287,15 @@ include_once 'includes/head.php';
             <div class="small-12 large-12 cell">
                 <center>
 
+                 <a class="button tudoCertoLink "  data-close aria-label="Close modal"  id="" target="_blank" style="font-weight: 400; width: 50%;" onclick="$('#iniciosSolicitacao').hide(); 
+                         $('#fieldSolicitacao').show();   
+                           $('#escolha').css('color', 'rgba(8, 124, 4, 0.66)');  
+                           $('#complemento').css('color', 'rgba(0, 0, 0, 1)');  ">
+                            Tudo Certo! Quero continuar com este serviço!
+                        </a>
+
                     <a class="button " data-close aria-label="Close modal" style="font-weight: 500; width: 50%; background-color: purple;">
-                        Clique para Fechar
+                        Não é este serviço que desejo! Vou procurar outro!
                     </a>
 
                 </center>

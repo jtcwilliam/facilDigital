@@ -172,7 +172,7 @@ class Solicitacao
 
 
 
-            $sql = "select  * from solicitacao sl inner join linkCartaServico lcs  on lcs.idlinkCartaServico = sl.assuntoSolicitacao inner join pessoas ps on ps.idPessoas = sl.solicitante  where  protocolo='" . $protocolo . "'";
+            $sql = "select  * from solicitacao sl inner join cartaServico lcs  on lcs.idCartaServico = sl.assuntoSolicitacao inner join pessoas ps on ps.idPessoas = sl.solicitante  where  protocolo='" . $protocolo . "'";
 
 
 

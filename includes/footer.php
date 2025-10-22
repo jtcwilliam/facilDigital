@@ -154,6 +154,7 @@
 
 
     function criarCaixaArquivo(idServico) {
+        alert(idServico);
     
         var formData = {
             idServico,

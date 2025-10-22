@@ -42,7 +42,7 @@ class Servicos
 
 
 
-            $sql = "select  * from linkCartaServico ";
+            $sql = "select  * from cartaServico ";
 
 
 
@@ -88,8 +88,9 @@ class Servicos
 
 
 
-            $sql = "select * from cartaServico where idLinkCarta = ".$filtro." ";
+            $sql = "select * from cartaServico  ".$filtro;
 
+        
    
 
         
@@ -127,7 +128,8 @@ class Servicos
         }
     }
 
-    public function  habilitarServicos()
+    //funcao que cria servico para carta. em outubro ainda não precisa
+       public function  criarServicoParaCarta()
     {
         try {
 
@@ -167,6 +169,44 @@ class Servicos
             $stmt->bindValue(6, $textoCartaServico, PDO::PARAM_STR);
             $stmt->bindValue(7, $versaoCartaServico, PDO::PARAM_STR);
 
+ 
+
+
+
+
+
+            if ($stmt->execute()) {
+
+                return true;
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+
+    public function  habilitarServicos()
+    {
+        try {
+
+            $pdo = $this->getPdoConn();
+
+
+            $idLinkCarta = $this->getIdCartaServico();
+            $categoria = $this->getCategoria();
+            $servicoHabilitado = $this->getServicoHabilitado();
+            $infoAtendente = $this->getInfoAtendente();
+            
+             $stmt = $pdo->prepare(" UPDATE `cartaServico` SET `servicoHabilitado` = ?, `infoAtendente` = ? ,   `categoria` = ?  WHERE `idCartaServico` = ?");   
+             
+              
+             
+            $stmt->bindValue(1, $servicoHabilitado, PDO::PARAM_INT);
+            $stmt->bindValue(2, $infoAtendente, PDO::PARAM_STR);
+            $stmt->bindValue(3, $categoria, PDO::PARAM_INT);
+            $stmt->bindValue(4, $idLinkCarta, PDO::PARAM_INT);
+
+ 
  
 
 

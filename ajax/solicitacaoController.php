@@ -66,6 +66,8 @@ if (isset($_POST['trazerSolicitacaoStatus'])) {
 
 if (isset($_POST['inserirSolicitacao'])) {
 
+ 
+
 
     if (isset($_POST['representaTerceiro'])) {
         $representaTerceiro = $_POST['representaTerceiro'];

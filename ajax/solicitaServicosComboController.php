@@ -43,7 +43,7 @@ if (isset($_POST['containner']) && $_POST['containner'] == 'comboServicos') {
         }
 
 
-        echo '<option    codigo='    . $value['idlinkCartaServico'] . '     value=' . $value['linkCarta'] . '  >' . $descricao . '</option>';
+        echo '<option      value=' . $value['idCartaServico'] . '  >' . $descricao . '</option>';
     }
 }
 
@@ -70,7 +70,7 @@ if (isset($_POST['containner']) && $_POST['containner'] == 'comboServicosDocumen
         }
 
 
-        echo '<option value=' . $value['idlinkCartaServico'] . '>' . $descricao . '</option>';
+        echo '<option value=' . $value['idCartaServico'] . '>' . $descricao . '</option>';
     }
 }
 

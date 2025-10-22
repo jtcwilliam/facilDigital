@@ -91,7 +91,7 @@ if ($_SESSION['usuarioLogado']['dados'][0]['idTipoPessoa'] != 4) {
                     <form action="ajax/habilitaServicosController.php" method="POST" enctype="multipart/form-data">
                         <div class=" grid-x grid-padding-x">
 
-                            <div class="small-12 large-12 cell">
+                            <div class="small-12 large-9 cell">
                                 <label for="qtdeMesas">Escolha Serviço a ser habilitado<br>
                                     <select class="js-example-basic-single  responsive-combobox" id="comboServicosDocumentos" name="comboServicos"
                                         style="width: 100%; height: 2em;" >
@@ -99,7 +99,11 @@ if ($_SESSION['usuarioLogado']['dados'][0]['idTipoPessoa'] != 4) {
                                 </label>
                             </div>
 
-                           
+                            <div class="small-12 large-3 cell">
+                                <label for=" ">Versão<br>
+                                    <input type="text" id="txtVersao" name="txtVersao" />
+                                </label>
+                            </div>
 
                             <div class="small-12 large-12 cell">
                                 <label for="qtdeMesas">Qual Categoria vai atender este servico?<br>
@@ -109,7 +113,16 @@ if ($_SESSION['usuarioLogado']['dados'][0]['idTipoPessoa'] != 4) {
                                 </label>
                             </div>
 
-                           
+                            <div class="small-12 large-12 cell">
+                                <label for="qtdeMesas">Insira as informações para o atendimento<br>
+                                    <textarea name="textoCartaServicos" id="textoCartaServicos"></textarea>
+                                    <script>
+                                        CKEDITOR.replace('textoCartaServicos');
+                                    </script>
+
+                                </label>
+                            </div>
+
 
 
 

@@ -9,6 +9,6 @@ $objServicos = new Servicos();
 
 
 
-$dadosServicos = $objServicos->trazerServicos($_POST['idServico']);
+$dadosServicos = $objServicos->trazerServicos('where idCartaServico=' .  $_POST['idServico']);
 
 echo $dadosServicos[0]['textoCartaServico'];

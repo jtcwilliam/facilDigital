@@ -15,20 +15,24 @@ $docs = count($documentosInserir);
 
 
 
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
 $objServicos->setServicoHabilitado(1);
 $objServicos->setInfoAtendente($_POST['infoAtendimentos']);
 $objServicos->setIdCartaServico($_POST['comboServicos']);
 $objServicos->setCategoria($_POST['comboCategoria']);
-$objServicos->setTextoServicos($_POST['textoCartaServicos']);
+ 
 $objServicos->setStatusServico('1');
-$objServicos->setVersaoCartaServico($_POST['txtVersao']);
+ 
 
 
 
 $i = 0;
 
 
-if ($objServicos->desabilitarServico()) {
+ 
 
     if ($objServicos->habilitarServicos()) {
 
@@ -44,7 +48,7 @@ if ($objServicos->desabilitarServico()) {
             }
         }
     }
-}
+ 
 
 
 

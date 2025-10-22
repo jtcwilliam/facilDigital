@@ -80,14 +80,14 @@ echo '</pre>';
                                 criaCombo('comboServicos');
                             </script>
                             <select class="js-example-basic-single  responsive-combobox" id="comboServicos"
-                                onchange="$('a#linkHelpServico').attr('href', $('#comboServicos').val());
-                                 $('#modalDuvidasCartas').foundation('open'); $('#tudoCertoLink').show();
-                                 consultaServicoAjuda($('#comboServicos').find(':selected').attr('codigo'));
+                                onchange=" $('#modalDuvidasCartas').foundation('open'); $('.tudoCertoLink').show();
                                  
-                                    criarCaixaArquivo($('#comboServicos').find(':selected').attr('codigo'));
+                                 
+                                    criarCaixaArquivo($('#comboServicos').val());
 
                                  $('#codigoSolicitacao').html( $('#comboServicos option:selected').text()) ;
-                                 $('#assuntoSolicitacao').val( $('#comboServicos option:selected').text()) ;" name="state" style="width: 100%;">
+                                 $('#assuntoSolicitacao').val( $('#comboServicos option:selected').text()) ;"
+                                  name="state" style="width: 100%;">
 
                             </select>
 
@@ -97,19 +97,26 @@ echo '</pre>';
                     <br>
                     <a class="button " target="_blank" id="linkHelpServico" style="font-weight: 300; width: 100%;">
                         Se você tem alguma dúvida sobre procedimentos ou documentação desta solicitação, <b>clique aqui</b>.
-                        Você será redirecionado para o portal da prefeitura para saber tudo o que precisa. Após isto, feche o Site da Prefeitura e continue sua solicitação aqui! </a>
+                        que vamos te apresentar um guia com tudo o que você precisa saber, desde os procedimentos a documentação,
+                        para realizar sua solicitação com toda a tranqilidade!
+
+                    </a>
                 </div>
 
                 <div class="small-12 large-12 cell">
 
-                   
                 </div>
 
 
                 <div class="small-12 large-12 cell">
                     <br>
                     <center>
-                        <a class="button " id="tudoCertoLink" target="_blank" style="font-weight: 300; width: 50%;" onclick="$('#iniciosSolicitacao').hide(); 
+
+                        <a class="button tudoCertoLink " id="" target="_blank" style="font-weight: 400; width: 50%; background-color: purple;" onclick="consultaServicoAjuda($('#comboServicos').val())">
+                            Quer uma ajuda? Clica aqui!
+                        </a><br>
+
+                        <a class="button tudoCertoLink " id="" target="_blank" style="font-weight: 400; width: 50%;" onclick="$('#iniciosSolicitacao').hide(); 
                          $('#fieldSolicitacao').show();   
                            $('#escolha').css('color', 'rgba(8, 124, 4, 0.66)');  
                            $('#complemento').css('color', 'rgba(0, 0, 0, 1)');  ">
@@ -511,7 +518,7 @@ echo '</pre>';
     $('#txtCEP').mask("00000-000");
 
     $('#botaoRetorno').hide();
-    $('#tudoCertoLink').hide();
+    $('.tudoCertoLink').hide();
 
 
 
@@ -569,7 +576,7 @@ echo '</pre>';
             emailTerceiro: $('#emailTerceiro').val(),
             telefoneTerceiro: $('#telefoneTerceiro').val(),
 
-            assuntoSolicitacao: $('#comboServicos').find(':selected').attr('codigo'),
+            assuntoSolicitacao: $('#comboServicos').val(),
             descricao: $('#txtDescricao').val(),
             documentoPublico: $('#inscDocu').val(),
             comboTipoInscricao: $('#comboTipoInscricao').val(),
@@ -693,7 +700,9 @@ echo '</pre>';
 
     function consultaServicoAjuda(idServico) {
 
- 
+        //alert(idServico);
+      
+
 
         $('#modalAjudaSolicitacaoNovo').foundation('open');
         var formData = {
