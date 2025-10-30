@@ -88,7 +88,7 @@ class servicosFacil
     public function trazerServicos()
     {
 
-        $sql = "select  * from arquivos ";
+        $sql = "select  * from cartaServico ";
 
         $executar = mysqli_query($this->getConexao(), $sql);
 
@@ -108,11 +108,9 @@ class servicosFacil
     public function consultarDadosServicos($info)
     {
 
-        $consulta= array();
-
-        $consulta[0] = $info;
+       
  
-        $sql = "select  * from servicosfacil where tituloServico = '".$consulta[0]."'"  ;
+        $sql = "select  * from cartaServico where idCartaServico =".$info  ;
 
        
 

@@ -8,25 +8,34 @@ class Conexao
     {
         try {
 
-         
 
-//desenvolvimento local
-  /* 
+
+            //desenvolvimento local
+            /* 
 
                 $user = 'root';
                 $password = '';
                 $db = 'gramulhabanc';
                 $host = '127.0.0.1';
 
-     */  
-   
-  
+     */
+
+
             //Produção
 
+            $user = 'dbagenddev';
+            $password = 'Sge@4@5';
+            $db = 'dbagenddev';
+            $host = 'dbagenddev.mysql.dbaas.com.br';
+
+
+            /*
             $user = 'gramulhabanc';
             $password = 'M@r1@He1en@';
             $db = 'gramulhabanc';
             $host = 'gramulhabanc.mysql.dbaas.com.br';
+
+            */
 
 
 

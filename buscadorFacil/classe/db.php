@@ -22,14 +22,28 @@ class Conexao
                 $db = 'dbportalfacil';
                 $db_port = 8889;
 
+
+
+
+                 $user = 'manualservico';
+            $password = 'Sge@4@5';
+            $db = 'manualservico';
+            $host = 'manualservico.mysql.dbaas.com.br';
+            $db_port = 3306;
+
+                
+            $user = 'dbagenddev';
+            $password = 'Sge@4@5';
+            $db = 'dbagenddev';
+            $host = 'dbagenddev.mysql.dbaas.com.br';
     */
   
             //Produção
 
-            $user = 'manualservico';
+             $user = 'dbagenddev';
             $password = 'Sge@4@5';
-            $db = 'manualservico';
-            $host = 'manualservico.mysql.dbaas.com.br';
+            $db = 'dbagenddev';
+            $host = 'dbagenddev.mysql.dbaas.com.br';
             $db_port = 3306;
   
 

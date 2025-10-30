@@ -1,11 +1,17 @@
 <?php
 
+ 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ 
 
 include_once 'classe/servicos.php';
 
 $objservico = new servicosFacil();
 
 $dados = $objservico->trazerServicos();
+
 
 
 
@@ -33,13 +39,25 @@ $dados = $objservico->trazerServicos();
     label {
       font-weight: 800;
       font-size: 1.1em;
-     
+
     }
 
     .tituloTabela {
       font-weight: 800;
       font-size: 1.1em;
       background-color: #e0e0e0;
+    }
+
+    /* Aumenta a altura do campo de entrada */
+    .select2-container .select2-selection--single {
+      height: 50px !important;
+      /* Ajuste o valor conforme sua necessidade */
+    }
+
+    /* Centraliza verticalmente o texto no campo */
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      line-height: 50px !important;
+      /* Deve ter o mesmo valor do `height` */
     }
   </style>
 
@@ -49,7 +67,7 @@ $dados = $objservico->trazerServicos();
 
 <body>
 
- 
+
 
 
 
@@ -58,11 +76,13 @@ $dados = $objservico->trazerServicos();
       <div class="large-12 cell">
 
 
+
+
         <fieldset class="fieldset">
           <legend>Pesquisa de Serviços</legend>
 
           <div class="grid-x grid-padding-x">
-            <div class="large-10 cell">
+            <div class="large-12 cell">
 
 
               <label>Especificação</label>
@@ -70,26 +90,36 @@ $dados = $objservico->trazerServicos();
                 <option>Digite qual serviço quer solicitar</option>
                 <?php
                 foreach ($dados as $key => $value) {
-                  echo '<option value='.$value['linkArquivos'].'  >' . $value['descricaoArquivos'] . '</option>';
+                  echo '<option value=' . $value['idCartaServico'] . '  >' . $value['descricaoCarta'] . '</option>';
                 }
                 ?>
               </select>
 
             </div>
-            <div class="large-2 cell">
-              <label> &nbsp;<br> </label>
-              <a href="#" onclick="consultarServicos($('#codigoUrl').val())"> Consultar Serviço</a>
-              </a>
 
+            <div class="cell auto"> </div>
+
+            <div class="large-4 cell">
+              <center>
+                <label> &nbsp;<br> </label>
+                <a class="button " href="#" onclick="consultarServicos($('#codigoUrl').val())"
+                  style="height: 50px !important;  border-radius: 10px; font-weight: 600;  width: 100%;"> Consultar Serviço</a>
+                </a>
+              </center>
             </div>
+
+            <div class="cell auto"> </div>
+
           </div>
         </fieldset>
-        
 
-        <div  id="infor">
+
+
+
+        <div id="infor" style="font-family: Arial, Helvetica, sans-serif;">
 
         </div>
- 
+
 
 
       </div>
@@ -112,17 +142,16 @@ $dados = $objservico->trazerServicos();
   </script>
 
   <script>
-    function consultarServicos() {
-
-      var codigoUrl = $('#codigoUrl').val();
+    function consultarServicos(codigo) {
 
 
-      window.open('http://localhost:8888/manualServicos/pastas/'+codigoUrl, '_blank');
 
-      /*
+
+
+
 
       var formData = {
-        comboProcessos: comboProcessos,
+        codigo: codigo,
 
         consultarServico: '1'
       };
@@ -142,7 +171,7 @@ $dados = $objservico->trazerServicos();
         });
 
       event.preventDefault();
-      */
+
 
     }
   </script>
